@@ -15,7 +15,7 @@
         android:id="@+id/btnOpcionRegistro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar Usuario"
+        android:text="Registrar Usuarios"
         android:onClick="onClick"/>
 
     <Button
