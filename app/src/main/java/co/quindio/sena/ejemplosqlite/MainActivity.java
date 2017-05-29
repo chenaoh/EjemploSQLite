@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        //otro comentario
         Intent miIntent=null;
         switch (view.getId()){
             case R.id.btnOpcionRegistro:
