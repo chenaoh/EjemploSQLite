@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnOpcionRegistro:
                 miIntent=new Intent(MainActivity.this,RegistroUsuariosActivity.class);
                 break;
+            case R.id.btnConsultaIndividual:
+                miIntent=new Intent(MainActivity.this,ConsultarUsuariosActivity.class);
+                break;
         }
         if (miIntent!=null){
             startActivity(miIntent);

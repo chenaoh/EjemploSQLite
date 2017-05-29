@@ -26,8 +26,8 @@ public class RegistroUsuariosActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        //registrarUsuarios();
-        registrarUsuariosSql();
+        registrarUsuarios();
+        //registrarUsuariosSql();
     }
 
     private void registrarUsuariosSql() {

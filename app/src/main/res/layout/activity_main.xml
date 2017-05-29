@@ -19,9 +19,11 @@
         android:onClick="onClick"/>
 
     <Button
+        android:id="@+id/btnConsultaIndividual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar Usuario"/>
+        android:text="Consultar Usuario"
+        android:onClick="onClick"/>
 
     <Button
         android:layout_width="match_parent"
