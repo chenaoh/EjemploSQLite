@@ -22,7 +22,6 @@ public class ConsultaComboActivity extends AppCompatActivity {
     Spinner comboPersonas;
     TextView txtNombre,txtDocumento,txtTelefono;
     ArrayList<String> listaPersonas;
-
     ArrayList<Usuario> personasList;
 
     ConexionSQLiteHelper conn;
@@ -40,18 +39,28 @@ public class ConsultaComboActivity extends AppCompatActivity {
         txtNombre= (TextView) findViewById(R.id.txtNombre);
         txtTelefono= (TextView) findViewById(R.id.txtTelefono);
 
-        consultarListaPersona();
+        consultarListaPersonas();
 
-        ArrayAdapter<CharSequence> adaptador=new ArrayAdapter(this,android.R.layout.simple_spinner_item,listaPersonas);
+        ArrayAdapter<CharSequence> adaptador=new ArrayAdapter
+                (this,android.R.layout.simple_spinner_item,listaPersonas);
 
         comboPersonas.setAdapter(adaptador);
-
 
         comboPersonas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                Toast.makeText(adapterView.getContext(),"Selecciona: "+adapterView.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
-               // Toast.makeText(adapterView.getContext(),"pos: "+position,Toast.LENGTH_LONG).show();
+               // Toast.makeText(adapterView.getContext(),"Selecciona: "+adapterView.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
+               //  Toast.makeText(adapterView.getContext(),"pos: "+position,Toast.LENGTH_LONG).show();
+               if (position!=0){
+                   txtDocumento.setText(personasList.get(position-1).getId().toString());
+                   txtNombre.setText(personasList.get(position-1).getNombre());
+                   txtTelefono.setText(personasList.get(position-1).getTelefono());
+               }else{
+                   txtDocumento.setText("");
+                   txtNombre.setText("");
+                   txtTelefono.setText("");
+               }
+
             }
 
             @Override
@@ -62,44 +71,38 @@ public class ConsultaComboActivity extends AppCompatActivity {
 
     }
 
-
-    private void consultarListaPersona() {
+    private void consultarListaPersonas() {
         SQLiteDatabase db=conn.getReadableDatabase();
+
         Usuario persona=null;
-        personasList=new ArrayList<Usuario>();
+        personasList =new ArrayList<Usuario>();
+        //select * from usuarios
+        Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_USUARIO,null);
 
-        try {
-            //select nombre,telefono from usuario where codigo=?
-            Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_USUARIO,null);
+        while (cursor.moveToNext()){
+            persona=new Usuario();
+            persona.setId(cursor.getInt(0));
+            persona.setNombre(cursor.getString(1));
+            persona.setTelefono(cursor.getString(2));
 
-            while (cursor.moveToNext()){
-                persona=new Usuario();
-                persona.setId(cursor.getInt(0));
-                persona.setNombre(cursor.getString(1));
-                persona.setTelefono(cursor.getString(2));
+            Log.i("id",persona.getId().toString());
+            Log.i("Nombre",persona.getNombre());
+            Log.i("Tel",persona.getTelefono());
 
-                Log.i("Doc ",persona.getId().toString() );
-                Log.i("Nombre ",persona.getNombre() );
-                Log.i("Tel ",persona.getTelefono() );
-
-                personasList.add(persona);
-            }
-
-            obtenerListaPersonas();
-
-        }catch (Exception e){
-            Toast.makeText(getApplicationContext(),"El documento no existe",Toast.LENGTH_LONG).show();
+            personasList.add(persona);
 
         }
-
+        obtenerLista();
     }
 
-    private void obtenerListaPersonas() {
+    private void obtenerLista() {
         listaPersonas=new ArrayList<String>();
         listaPersonas.add("Seleccione");
 
-        for (int i=0; i<personasList.size();i++){
+        for(int i=0;i<personasList.size();i++){
             listaPersonas.add(personasList.get(i).getId()+" - "+personasList.get(i).getNombre());
         }
+
     }
+
 }
