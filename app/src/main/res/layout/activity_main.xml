@@ -26,14 +26,18 @@
         android:onClick="onClick"/>
 
     <Button
+        android:id="@+id/btnConsultaSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar Lista Usuario Usando Spinner"/>
+        android:text="Consultar Lista Usuario Usando Spinner"
+        android:onClick="onClick"/>
 
     <Button
+        android:id="@+id/btnConsultaLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Consultar Lista Usuario Usando ListView"/>
+        android:text="Consultar Lista Usuario Usando ListView"
+        android:onClick="onClick"/>
 
 
 </LinearLayout>
