@@ -48,18 +48,18 @@ public class ConsultaComboActivity extends AppCompatActivity {
 
         comboPersonas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-               // Toast.makeText(adapterView.getContext(),"Selecciona: "+adapterView.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
-               //  Toast.makeText(adapterView.getContext(),"pos: "+position,Toast.LENGTH_LONG).show();
-               if (position!=0){
-                   txtDocumento.setText(personasList.get(position-1).getId().toString());
-                   txtNombre.setText(personasList.get(position-1).getNombre());
-                   txtTelefono.setText(personasList.get(position-1).getTelefono());
-               }else{
-                   txtDocumento.setText("");
-                   txtNombre.setText("");
-                   txtTelefono.setText("");
-               }
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long idl) {
+
+                if (position!=0){
+                    txtDocumento.setText(personasList.get(position-1).getId().toString());
+                    txtNombre.setText(personasList.get(position-1).getNombre());
+                    txtTelefono.setText(personasList.get(position-1).getTelefono());
+                }else{
+                    txtDocumento.setText("");
+                    txtNombre.setText("");
+                    txtTelefono.setText("");
+                }
+
 
             }
 

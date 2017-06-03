@@ -17,7 +17,8 @@
         </activity>
         <activity android:name=".RegistroUsuariosActivity" />
         <activity android:name=".ConsultarUsuariosActivity" />
-        <activity android:name=".ConsultaComboActivity"></activity>
+        <activity android:name=".ConsultaComboActivity" />
+        <activity android:name=".ConsultarListaListViewActivity" />
     </application>
 
 </manifest>
