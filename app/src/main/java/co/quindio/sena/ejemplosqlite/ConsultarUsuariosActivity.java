@@ -38,14 +38,23 @@ public class ConsultarUsuariosActivity extends AppCompatActivity {
 //                consultar();
                 consultarSql();
                 break;
-            case R.id.btnActualizar:
-                actualizarUsuario();
+            case R.id.btnActualizar: actualizarUsuario();
                 break;
-            case R.id.btnEliminar:
-                eliminarUsuario();
+            case R.id.btnEliminar: eliminarUsuario();
                 break;
         }
 
+    }
+
+    private void eliminarUsuario() {
+        SQLiteDatabase db=conn.getWritableDatabase();
+        String[] parametros={campoId.getText().toString()};
+
+        db.delete(Utilidades.TABLA_USUARIO,Utilidades.CAMPO_ID+"=?",parametros);
+        Toast.makeText(getApplicationContext(),"Ya se Eliminó el usuario",Toast.LENGTH_LONG).show();
+        campoId.setText("");
+        limpiar();
+        db.close();
     }
 
     private void actualizarUsuario() {
@@ -56,19 +65,9 @@ public class ConsultarUsuariosActivity extends AppCompatActivity {
         values.put(Utilidades.CAMPO_TELEFONO,campoTelefono.getText().toString());
 
         db.update(Utilidades.TABLA_USUARIO,values,Utilidades.CAMPO_ID+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"El usuario Fue Actualizado",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),"Ya se actualizó el usuario",Toast.LENGTH_LONG).show();
         db.close();
-    }
 
-    private void eliminarUsuario() {
-        SQLiteDatabase db=conn.getWritableDatabase();
-        String[] parametros={campoId.getText().toString()};
-
-        db.delete(Utilidades.TABLA_USUARIO,Utilidades.CAMPO_ID+"=?",parametros);
-        Toast.makeText(getApplicationContext(),"El usuario Fue Eliminado",Toast.LENGTH_LONG).show();
-        campoId.setText("");
-        limpiar();
-        db.close();
     }
 
     private void consultarSql() {
