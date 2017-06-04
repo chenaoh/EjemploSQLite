@@ -40,7 +40,11 @@ public class ConsultarListaListViewActivity extends AppCompatActivity {
         listViewPersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                Toast.makeText(getApplicationContext(),parent.getItemAtPosition(position).toString(),Toast.LENGTH_SHORT).show();
+                String datos="Id: "+listaUsuarios.get(position).getId()+"\n";
+                datos+="Nombre: "+listaUsuarios.get(position).getNombre()+"\n";
+                datos+="Tel: "+listaUsuarios.get(position).getTelefono()+"\n";
+                Toast.makeText(getApplicationContext(),datos,Toast.LENGTH_LONG).show();
+
             }
         });
 
