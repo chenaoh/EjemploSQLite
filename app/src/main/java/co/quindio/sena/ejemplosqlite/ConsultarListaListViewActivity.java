@@ -30,43 +30,43 @@ public class ConsultarListaListViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_consultar_lista_list_view);
 
         conn=new ConexionSQLiteHelper(getApplicationContext(),"bd_usuarios",null,1);
+
         listViewPersonas= (ListView) findViewById(R.id.listViewPersonas);
 
-        consultarListaUsuarios();
+        consultarListaPersonas();
 
         ArrayAdapter adaptador=new ArrayAdapter(this,android.R.layout.simple_list_item_1,listaInformacion);
         listViewPersonas.setAdapter(adaptador);
 
         listViewPersonas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
-                String datos="Id: "+listaUsuarios.get(position).getId()+"\n";
-                datos+="Nombre: "+listaUsuarios.get(position).getNombre()+"\n";
-                datos+="Tel: "+listaUsuarios.get(position).getTelefono()+"\n";
-                Toast.makeText(getApplicationContext(),datos,Toast.LENGTH_LONG).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+                String informacion="id: "+listaUsuarios.get(pos).getId()+"\n";
+                informacion+="Nombre: "+listaUsuarios.get(pos).getNombre()+"\n";
+                informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
+
+                Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_LONG).show();
 
             }
         });
 
-
     }
 
-    private void consultarListaUsuarios() {
+    private void consultarListaPersonas() {
         SQLiteDatabase db=conn.getReadableDatabase();
 
-        Usuario persona=null;
-        listaUsuarios =new ArrayList<Usuario>();
+        Usuario usuario=null;
+        listaUsuarios=new ArrayList<Usuario>();
         //select * from usuarios
-        Cursor cursor=db.rawQuery("SELECT * FROM "+ Utilidades.TABLA_USUARIO,null);
+        Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_USUARIO,null);
 
         while (cursor.moveToNext()){
-            persona=new Usuario();
-            persona.setId(cursor.getInt(0));
-            persona.setNombre(cursor.getString(1));
-            persona.setTelefono(cursor.getString(2));
+            usuario=new Usuario();
+            usuario.setId(cursor.getInt(0));
+            usuario.setNombre(cursor.getString(1));
+            usuario.setTelefono(cursor.getString(2));
 
-            listaUsuarios.add(persona);
-
+            listaUsuarios.add(usuario);
         }
         obtenerLista();
     }
@@ -74,9 +74,11 @@ public class ConsultarListaListViewActivity extends AppCompatActivity {
     private void obtenerLista() {
         listaInformacion=new ArrayList<String>();
 
-        for(int i=0;i<listaUsuarios.size();i++){
-            listaInformacion.add(listaUsuarios.get(i).getId()+" - "+listaUsuarios.get(i).getNombre());
+        for (int i=0; i<listaUsuarios.size();i++){
+            listaInformacion.add(listaUsuarios.get(i).getId()+" - "
+                    +listaUsuarios.get(i).getNombre());
         }
 
     }
+
 }
