@@ -1,5 +1,6 @@
 package co.quindio.sena.ejemplosqlite;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,17 @@ public class ConsultarListaListViewActivity extends AppCompatActivity {
                 informacion+="Telefono: "+listaUsuarios.get(pos).getTelefono()+"\n";
 
                 Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(ConsultarListaListViewActivity.this,DetalleUsuarioActivity.class);
+
+                Usuario usuario=listaUsuarios.get(pos);
+
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("usuario",usuario);
+
+                intent.putExtras(bundle);
+
+                startActivity(intent);
 
             }
         });

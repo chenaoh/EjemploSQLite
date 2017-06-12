@@ -1,10 +1,12 @@
 package co.quindio.sena.ejemplosqlite.entidades;
 
+import java.io.Serializable;
+
 /**
  * Created by CHENAO on 7/05/2017.
  */
 
-public class Usuario {
+public class Usuario implements Serializable{
 
     private Integer id;
     private String nombre;
