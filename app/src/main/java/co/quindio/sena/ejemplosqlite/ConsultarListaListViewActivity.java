@@ -48,15 +48,14 @@ public class ConsultarListaListViewActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(),informacion,Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(ConsultarListaListViewActivity.this,DetalleUsuarioActivity.class);
+                Usuario user=listaUsuarios.get(pos);
 
-                Usuario usuario=listaUsuarios.get(pos);
+                Intent intent=new Intent(ConsultarListaListViewActivity.this,DetalleUsuarioActivity.class);
 
                 Bundle bundle=new Bundle();
-                bundle.putSerializable("usuario",usuario);
+                bundle.putSerializable("usuario",user);
 
                 intent.putExtras(bundle);
-
                 startActivity(intent);
 
             }

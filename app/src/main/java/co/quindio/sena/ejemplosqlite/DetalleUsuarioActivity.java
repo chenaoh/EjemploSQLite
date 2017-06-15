@@ -22,11 +22,13 @@ public class DetalleUsuarioActivity extends AppCompatActivity {
 
         Bundle objetoEnviado=getIntent().getExtras();
         Usuario user=null;
-        if (objetoEnviado!=null){
-            user=(Usuario) objetoEnviado.getSerializable("usuario");
+
+        if(objetoEnviado!=null){
+            user= (Usuario) objetoEnviado.getSerializable("usuario");
             campoId.setText(user.getId().toString());
             campoNombre.setText(user.getNombre().toString());
             campoTelefono.setText(user.getTelefono().toString());
+
         }
 
     }
