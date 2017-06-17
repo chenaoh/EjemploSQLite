@@ -19,7 +19,10 @@
         <activity android:name=".ConsultarUsuariosActivity" />
         <activity android:name=".ConsultaComboActivity" />
         <activity android:name=".ConsultarListaListViewActivity" />
-        <activity android:name=".DetalleUsuarioActivity"></activity>
+        <activity android:name=".DetalleUsuarioActivity" />
+        <activity android:name=".RegistroMascotaActivity" />
+        <activity android:name=".ListaMascotasActivity" />
+        <activity android:name=".DetalleMascotaActivity"></activity>
     </application>
 
 </manifest>

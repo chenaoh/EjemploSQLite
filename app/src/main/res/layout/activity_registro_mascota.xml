@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_registro_mascota"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -9,48 +9,45 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="co.quindio.sena.ejemplosqlite.MainActivity">
+    tools:context="co.quindio.sena.ejemplosqlite.RegistroMascotaActivity">
 
-    <Button
-        android:id="@+id/btnOpcionRegistro"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar Usuarios"
-        android:onClick="onClick"/>
+        android:text="REGISTRO DE MASCOTAS"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/campoNombreMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre Mascota"/>
+
+    <EditText
+        android:id="@+id/campoRaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Raza Mascota"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dueño"
+        android:textSize="20sp"/>
+
+    <Spinner
+        android:id="@+id/comboDuenioMascota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnRegistroMascota"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrar Mascota"
-        android:onClick="onClick"/>
-
-    <Button
-        android:id="@+id/btnConsultaIndividual"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar Usuario"
-        android:onClick="onClick"/>
-
-    <Button
-        android:id="@+id/btnConsultaSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar Lista Usuario Usando Spinner"
-        android:onClick="onClick"/>
-
-    <Button
-        android:id="@+id/btnConsultaLista"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar Lista Usuario Usando ListView"
-        android:onClick="onClick"/>
-
-    <Button
-        android:id="@+id/btnConsultaListaMascota"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Consultar Lista Mascotas"
+        android:layout_marginTop="30dp"
         android:onClick="onClick"/>
 
 

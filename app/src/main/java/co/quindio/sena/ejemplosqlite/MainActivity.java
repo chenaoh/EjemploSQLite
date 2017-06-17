@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnOpcionRegistro:
                 miIntent=new Intent(MainActivity.this,RegistroUsuariosActivity.class);
                 break;
+            case R.id.btnRegistroMascota:
+                miIntent=new Intent(MainActivity.this,RegistroMascotaActivity.class);
+                break;
             case R.id.btnConsultaIndividual:
                 miIntent=new Intent(MainActivity.this,ConsultarUsuariosActivity.class);
                 break;
@@ -32,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btnConsultaLista:
                 miIntent=new Intent(MainActivity.this,ConsultarListaListViewActivity.class);
+                break;
+            case R.id.btnConsultaListaMascota:
+                miIntent=new Intent(MainActivity.this,ListaMascotasActivity.class);
                 break;
         }
         if (miIntent!=null){
