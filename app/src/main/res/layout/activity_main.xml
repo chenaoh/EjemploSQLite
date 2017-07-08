@@ -53,5 +53,12 @@
         android:text="Consultar Lista Mascotas"
         android:onClick="onClick"/>
 
+    <Button
+        android:id="@+id/btnConsultaListaPersonasRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar Lista Usando Recycler"
+        android:onClick="onClick"/>
+
 
 </LinearLayout>
